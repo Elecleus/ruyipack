@@ -26,6 +26,7 @@ struct BuildStepTemplate {
     environment: String,
 }
 
+#[allow(unused)]
 #[derive(Default)]
 struct SourceTemplate {
     name: String,

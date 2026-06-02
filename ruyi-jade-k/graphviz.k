@@ -1,7 +1,7 @@
 import jade.package
 # import jade.targets
 
-graphviz = package.Package {
+package.Package {
     name: "graphviz"
     version: "14.0.4"
     release: "1"

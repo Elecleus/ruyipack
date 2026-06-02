@@ -1,3 +1,3 @@
 pub mod input;
-pub mod outpus;
+pub mod output;
 pub mod package;

@@ -1,22 +1,13 @@
-//! Handle the input of a static package.
+pub mod targets;
 
-use serde_json::from_reader;
-
-use crate::package::PackageStatic;
-
-use std::{fs::File, path::Path};
-
-pub fn from_json_file(path: &Path) -> Result<PackageStatic, InputError> {
-    let file = File::open(path)?;
-    let result = from_reader(file)?;
-
-    Ok(result)
-}
+pub use targets::json::from_json_file;
+pub use targets::kcl::from_kcl_file;
 
 #[derive(Debug)]
 pub enum InputError {
     FileOpenError(std::io::Error),
     DeserializeError(serde_json::Error),
+    CommandRunningError(std::io::Error),
 }
 
 impl From<std::io::Error> for InputError {
