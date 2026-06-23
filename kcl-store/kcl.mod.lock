@@ -1,0 +1,5 @@
+[dependencies]
+  [dependencies.jade]
+    name = "jade"
+    full_name = "jade_0.0.1"
+    version = "0.0.1"
