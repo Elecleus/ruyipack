@@ -1,6 +1,6 @@
 use askama::Template as _;
 use clap::{Arg, Command, arg};
-use ruyi_handle::{
+use ruyi_core::{
     input::{self, input_router},
     package::PackageStatic,
 };
