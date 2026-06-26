@@ -1,0 +1,11 @@
+[package]
+name = "ruyi-core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+askama = { workspace = true }
+clap = { workspace = true, features = ["env"] }
+indexmap = { workspace = true, features = ["serde"] }
+serde = { workspace = true, features = ["derive", "serde_derive"] }
+serde_json = { workspace = true }
