@@ -1,6 +1,8 @@
 use std::{path::Path, process::Command};
 
-use crate::{input::InputError, package::PackageStatic};
+use ruyi_core::package::PackageStatic;
+
+use crate::input::InputError;
 
 pub fn from_kcl_file(path: &Path) -> Result<PackageStatic, InputError> {
     let kcl_output = Command::new("kcl")

@@ -2,12 +2,12 @@ pub mod targets;
 
 use std::path::PathBuf;
 
+use ruyi_core::package::PackageStatic;
 pub use targets::json::from_json_file;
 pub use targets::kcl::from_kcl_file;
 pub use targets::stdin::from_stdin;
 
 use crate::config::get_kcl_store;
-use crate::package::PackageStatic;
 
 pub fn input_router(target: &str) -> PackageStatic {
     match InputType::paste(target) {
