@@ -1,8 +1,9 @@
 use askama::Template as _;
 use clap::{Arg, Command, arg};
-use ruyi_core::{
+use ruyi_core::package::PackageStatic;
+use ruyi_io::{
     input::{self, input_router},
-    package::PackageStatic,
+    output::targets::rpm_spec::RpmSpecTemplate,
 };
 
 fn main() -> Result<(), input::InputError> {
@@ -50,7 +51,10 @@ fn main() -> Result<(), input::InputError> {
                 None => input::from_stdin()?,
             };
 
-            let rpm_spec = loaded.to_rpm_spec_template().unwrap().render().unwrap(); // All these unwrap should never panic.
+            let rpm_spec = <&PackageStatic as TryInto<RpmSpecTemplate>>::try_into(&loaded)
+                .unwrap()
+                .render()
+                .unwrap();
             println!("{}", rpm_spec);
         }
         _ => unreachable!(),

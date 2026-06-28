@@ -1,8 +1,9 @@
 use std::io;
 
+use ruyi_core::package::PackageStatic;
 use serde_json::from_reader;
 
-use crate::{input::InputError, package::PackageStatic};
+use crate::input::InputError;
 
 pub fn from_stdin() -> Result<PackageStatic, InputError> {
     let stdin = io::stdin();
