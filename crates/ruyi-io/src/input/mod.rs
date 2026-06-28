@@ -3,11 +3,12 @@ pub mod targets;
 use std::path::PathBuf;
 
 use ruyi_core::package::PackageStatic;
+use ruyi_core::repo::Repo;
 pub use targets::json::from_json_file;
 pub use targets::kcl::from_kcl_file;
 pub use targets::stdin::from_stdin;
 
-use crate::config::get_kcl_store;
+use crate::repo::kcl::KclRepo;
 
 pub fn input_router(target: &str) -> PackageStatic {
     match InputType::paste(target) {
@@ -45,13 +46,9 @@ impl InputType {
         }
 
         // Check for Name.
-        let first_letter = target.chars().nth(0).expect("Got empty package name");
-        let target_path = get_kcl_store()
-            .join(first_letter.to_string())
-            .join(target.to_owned() + ".k");
-        if target_path.exists() {
+        if let Some(target_path) = KclRepo::new().unwrap().get_by_name(target) {
             return InputType::Name(target_path);
-        }
+        };
 
         // Stdin
         eprintln!("[INFO] Fallback to read from stdin.");
