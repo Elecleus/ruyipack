@@ -1,9 +1,9 @@
 [package]
-name = "ruyi-io"
+name = "ruyipack-io"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
 askama.workspace = true
-ruyi-core = { version = "0.1.0", path = "../ruyi-core" }
+ruyipack-core = { version = "0.1.0", path = "../ruyipack-core" }
 serde_json.workspace = true

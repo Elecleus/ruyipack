@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["crates/cli", "crates/ruyi-core", "crates/ruyi-io"]
+members = ["crates/ruyipack", "crates/ruyipack-core", "crates/ruyipack-io"]
 
 [workspace.dependencies]
 askama = "0.15.6"

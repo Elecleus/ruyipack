@@ -1,6 +1,6 @@
 use std::io;
 
-use ruyi_core::package::PackageStatic;
+use ruyipack_core::package::PackageStatic;
 use serde_json::from_reader;
 
 use crate::input::InputError;

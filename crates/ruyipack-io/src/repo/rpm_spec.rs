@@ -3,7 +3,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use ruyi_core::repo::Repo;
+use ruyipack_core::repo::Repo;
 
 use crate::repo::RepoError;
 

@@ -1,4 +1,4 @@
-## 寻找如意 seek-for-ruyi
+## ruyipack
 
 作为 openRuyi 打包方案和构建流程演进的实验/测试仓库
 

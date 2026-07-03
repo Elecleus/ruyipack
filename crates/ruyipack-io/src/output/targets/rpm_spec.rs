@@ -1,6 +1,6 @@
 use askama::Template;
 
-use ruyi_core::package::{BuildStep, PackageStatic};
+use ruyipack_core::package::{BuildStep, PackageStatic};
 
 // 此部分字段直接对应模板填充
 #[derive(Template, Default)]
