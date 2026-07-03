@@ -1,6 +1,6 @@
 use std::{path::Path, process::Command};
 
-use ruyi_core::package::PackageStatic;
+use ruyipack_core::package::PackageStatic;
 
 use crate::input::InputError;
 

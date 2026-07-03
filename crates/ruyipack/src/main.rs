@@ -1,7 +1,7 @@
 use askama::Template as _;
-use clap::{Arg, Command, arg};
-use ruyi_core::package::PackageStatic;
-use ruyi_io::{
+use clap::{arg, Arg, Command};
+use ruyipack_core::package::PackageStatic;
+use ruyipack_io::{
     input::{self, input_router},
     output::targets::rpm_spec::RpmSpecTemplate,
 };

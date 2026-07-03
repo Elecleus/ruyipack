@@ -1,0 +1,15 @@
+[package]
+name = "ruyipack"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "rpk"
+path = "src/main.rs"
+
+[dependencies]
+askama.workspace = true
+clap.workspace = true
+ruyipack-core = { version = "0.1.0", path = "../ruyipack-core" }
+ruyipack-io = { version = "0.1.0", path = "../ruyipack-io" }
+serde_json.workspace = true

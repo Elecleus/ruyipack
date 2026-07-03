@@ -2,8 +2,8 @@ pub mod targets;
 
 use std::path::PathBuf;
 
-use ruyi_core::package::PackageStatic;
-use ruyi_core::repo::Repo;
+use ruyipack_core::package::PackageStatic;
+use ruyipack_core::repo::Repo;
 pub use targets::json::from_json_file;
 pub use targets::kcl::from_kcl_file;
 pub use targets::stdin::from_stdin;

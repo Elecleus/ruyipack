@@ -1,8 +1,8 @@
 ## 功能扩展架构设计
 
-- 入口：`ruyi build <file>`
+- 入口：`rpk build <file>`
 
-- `ruyi` 检测 `<file>` 的类型
+- `rpk` 检测 `<file>` 的类型
 
   类型包括：
   - `.k`, KCL 文件
