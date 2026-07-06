@@ -10,8 +10,12 @@ Source{{ loop.index }}:        {{ source.url }}
 {% endfor -%}
 BuildSystem:    {{ build_system }}
 
-BuildRequires:  {{ output_main.build_requires }}
-Requires:       {{ output_main.requires }}
+{% for build_require in output_main.build_requires -%}
+BuildRequires:  {{ build_require }}
+{% endfor %}
+{% for require in output_main.requires -%}
+BuildRequires:  {{ require }}
+{% endfor -%}
 
 %description
 {{ output_main.description }}
@@ -19,8 +23,12 @@ Requires:       {{ output_main.requires }}
 {%~ for output in output_others %}
 %package        {{ output.name }}
 Summary:        {{ output.summary }}
-Requires:       {{ output.requires }}
-BuildRequires:  {{ output.build_requires }}
+{% for build_require in output.build_requires -%}
+BuildRequires:  {{ build_require }}
+{% endfor %}
+{% for require in output.requires -%}
+BuildRequires:  {{ require }}
+{% endfor -%}
 
 %description    {{ output.name }}
 {{ output.description }}
@@ -30,7 +38,7 @@ BuildRequires:  {{ output.build_requires }}
 %build -a
 {{ build_step.environment }}
 {{ build_step.script }}
-{%- endfor %}
+{%- endfor -%}
 
 %files
 {{ output_main.files }}

@@ -41,8 +41,8 @@ struct OutputTemplate {
     name: String,
     summary: String,
     description: String,
-    requires: String,
-    build_requires: String,
+    requires: Vec<String>,
+    build_requires: Vec<String>,
     files: String,
 }
 
@@ -56,8 +56,8 @@ impl TryFrom<&PackageStatic> for RpmSpecTemplate {
                     name: main_output.0.clone(),
                     summary: main_output.1.summary.clone(),
                     description: main_output.1.description.clone(),
-                    requires: main_output.1.requires.join("\n"),
-                    build_requires: main_output.1.build_requires.join("\n"),
+                    requires: main_output.1.requires.clone(),
+                    build_requires: main_output.1.build_requires.clone(),
                     files: main_output.1.files.join("\n"),
                 }
             } else {
@@ -72,8 +72,8 @@ impl TryFrom<&PackageStatic> for RpmSpecTemplate {
                 name: output.0.clone(),
                 summary: output.1.summary.clone(),
                 description: output.1.description.clone(),
-                requires: output.1.requires.join("\n"),
-                build_requires: output.1.build_requires.join("\n"),
+                requires: output.1.requires.clone(),
+                build_requires: output.1.build_requires.clone(),
                 files: output.1.files.join("\n"),
             })
             .collect();

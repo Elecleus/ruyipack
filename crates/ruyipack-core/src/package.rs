@@ -13,7 +13,7 @@ pub struct PackageStatic {
     pub vcs: String,
     #[serde(alias = "buildSystem" /* For KCL */)]
     pub build_system: String,
-    #[serde(default, alias = "build_steps" /* For KCL */)]
+    #[serde(default, alias = "buildSteps" /* For KCL */)]
     pub build_steps: Vec<BuildStep>,
     pub sources: IndexMap<String, Source>,
     pub outputs: IndexMap<String, Output>,
@@ -39,9 +39,9 @@ pub struct Source {
 pub struct Output {
     pub summary: String,
     pub description: String,
-    #[serde(default)]
+    #[serde(default, alias = "runtimeRequires")]
     pub requires: Vec<String>,
-    #[serde(default)]
+    #[serde(default, alias = "buildRequires")]
     pub build_requires: Vec<String>,
     #[serde(default)]
     pub files: Vec<String>,
